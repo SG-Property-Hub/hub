@@ -14,29 +14,31 @@ const NavBar = () => (
     <nav className='max-w-[1440px] mx-auto flex justify-between items-center sm:px-16 px-6 py-4 bg-transparent'>
       <Link href='/' className='flex justify-center items-center'>
         <Image
-          src='/logo.png'
+          src='/logo_sgp.png'
           alt='logo'
-          width={118}
-          height={18}
+          width={128}
+          height={25}
           className='object-contain'
         />
       </Link>
 
-      <Link href="https://server.vietdoo.engineer/maps">
+      <div className='flex justify-between'> 
+        <Link href="https://server.vietdoo.engineer/maps" className="mr-5">
+          <CustomButton
+            title="Bản đồ"
+            containerStyles="bg-primary-blue text-white rounded-full min-w-[130px]"
+          />
+        </Link>
+        
+
         <CustomButton
-          title="Maps"
-          containerStyles="bg-primary-blue text-white rounded-full min-w-[130px] ml-40"
+          title='Đăng nhập'
+          btnType='button'
+          containerStyles='text-primary-blue rounded-full bg-white min-w-[130px]'
         />
-    </Link>
+      </div>
       
-
-      <CustomButton
-        title='Sign in'
-        btnType='button'
-        containerStyles='text-primary-blue rounded-full bg-white min-w-[130px]'
-      />
-
-      
+    
 
     </nav>
   </header>

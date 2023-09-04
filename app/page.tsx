@@ -15,13 +15,13 @@ export default async function Home({ searchParams }: HomeProps) {
   const isDataEmpty = !Array.isArray(allHouses) || allHouses.length < 1 || !allHouses;
 
   return (
-    <main className='overflow-hidden'>
+    <main className='overflow-hidden' >
       <Hero />
 
       <div className='mt-12 padding-x padding-y max-width' id='discover'>
         <div className='home__text-container'>
-          <h1 className='text-4xl font-extrabold'>House Catalogue</h1>
-          <p>Explore out houses you might like</p>
+          <h1 className='text-4xl font-extrabold'>Danh Sách Bất Động Sản</h1>
+          <p>Tìm ngay bất động sản phù hợp với bạn</p>
         </div>
 
         <div className='home__filters'>
