@@ -10,6 +10,7 @@ export interface HouseProps {
   price: number;
   long: number;
   lat: number;
+  description: string;
 }
 
 export interface FilterProps {

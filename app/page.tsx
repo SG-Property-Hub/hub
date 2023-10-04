@@ -1,19 +1,24 @@
-import { fetchCars } from "@utils";
+// "use client";
+
+import { fetchHouses } from "@utils";
 import { HomeProps } from "@types";
 import { propDist, propType } from "@constants";
 import { HouseCard, ShowMore, SearchBar, CustomFilter, Hero } from "@components";
+import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 export default async function Home({ searchParams }: HomeProps) {
-  const allHouses = await fetchCars(
-    //{manufacturer: searchParams.manufacturer || "",
+  // const pathname = usePathname()
+  const allHouses = await fetchHouses({
+    //manufacturer: searchParams.manufacturer || "",
     // year: searchParams.year || 2022,
     // fuel: searchParams.fuel || "",
-    // limit: searchParams.limit || 10,
-    // model: searchParams.model || "",}
-    );
+    limit: searchParams.limit || 48
+    // model: searchParams.model || "",
+  });
 
   const isDataEmpty = !Array.isArray(allHouses) || allHouses.length < 1 || !allHouses;
-
+  // router.replace(router.asPath);
   return (
     <main className='overflow-hidden' >
       <Hero />

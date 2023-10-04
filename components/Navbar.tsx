@@ -10,7 +10,7 @@ const openInNewTab = (url:string) => {
 
 const NavBar = () => (
   
-  <header className='w-full  absolute z-10'>
+  <header className='w-full'>
     <nav className='max-w-[1440px] mx-auto flex justify-between items-center sm:px-16 px-6 py-4 bg-transparent'>
       <Link href='/' className='flex justify-center items-center'>
         <Image
@@ -23,7 +23,7 @@ const NavBar = () => (
       </Link>
 
       <div className='flex justify-between'> 
-        <Link href="https://server.vietdoo.engineer/maps" className="mr-5">
+        <Link href="/maps" className="mr-5">
           <CustomButton
             title="Bản đồ"
             containerStyles="bg-primary-blue text-white rounded-full min-w-[130px]"

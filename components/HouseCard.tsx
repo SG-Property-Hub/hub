@@ -3,10 +3,11 @@
 import { useState } from "react";
 import Image from "next/image";
 
-import { calculateCarRent, generatePrice } from "@utils";
+import { generatePrice } from "@utils";
 import { HouseProps } from "@types";
 import CustomButton from "./CustomButton";
 import HouseDetails from "./HouseDetails";
+import Link from "next/link";
 
 interface HouseCardProps {
   house: HouseProps;
@@ -20,9 +21,9 @@ const HouseCard = ({ house }: HouseCardProps) => {
   // const carRent = calculateCarRent(city_mpg, year);
 
   return (
-    <div className="car-card group">
-      <div className="car-card__content" style={{ height: '100px' }}>
-        <h3 className="car-card__content-title">
+    <div className="house-card group">
+      <div className="house-card__content" style={{ height: '100px' }}>
+        <h3 className="house-card__content-title">
           {title}
         </h3>
       </div>
@@ -45,25 +46,32 @@ const HouseCard = ({ house }: HouseCardProps) => {
               {title === "a" ? "Đất" : "Nhà"}
             </p>
           </div>
-          <div className="car-card__icon">
+          <div className="house-card__icon">
             <Image src="/square.png" width={20} height={20} alt="seat" />
-            <p className="car-card__icon-text">{size}</p>
+            <p className="house-card__icon-text">{size}</p>
           </div>
-          <div className="car-card__icon">
+          <div className="house-card__icon">
             <Image src="/room.png" width={20} height={20} alt="seat" />
-            <p className="car-card__icon-text">{rooms}</p>
+            <p className="house-card__icon-text">{rooms}</p>
           </div>
           
         </div>
 
-        <div className="car-card__btn-container">
-          <CustomButton
-            title='View More'
-            containerStyles='w-full py-[16px] rounded-full bg-primary-blue'
-            textStyles='text-white text-[14px] leading-[17px] font-bold'
-            rightIcon='/right-arrow.svg'
-            handleClick={() => setIsOpen(true)}
-          />
+        <div className="house-card__btn-container">
+          <Link href='product/199'>
+            <CustomButton
+              title='Xem thêm'
+              containerStyles='w-full py-[16px] rounded-full bg-primary-blue'
+              textStyles='text-white text-[14px] leading-[17px] font-bold'
+              // rightIcon='/right-arrow.svg'
+         
+              
+              // handleClick={() => setIsOpen(true)}
+            />
+          </Link>
+          
+
+          
         </div>
       </div>
 
