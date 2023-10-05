@@ -5,8 +5,8 @@
 // import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
 // import "leaflet-defaulticon-compatibility";
 
-// const Map = () => {
-//   return (
+const Map = () => {
+  return (
 //     <MapContainer >
 //       <Marker 
 //       position={[40.8054,-74.0241]}
@@ -18,7 +18,9 @@
 //         </Popup>
 //       </Marker>
 //     </MapContainer>
-//   )
-// }
+//   
+    <h1>HELLO</h1>
+  )
+}
 
-// export default Map
+export default Map
