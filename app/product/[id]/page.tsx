@@ -21,10 +21,16 @@ export interface PageProps {
 export default async function Page({params}: PageProps ) {
   const {id} = params;
   const data = await fetchHouse(id);
+  const house = data
+
   if (!data) return null;
-  const house = data[0]
-  const images = new Array(3).fill('https://cdn.chotot.com/XI28WDFwhRO7cWRHD75RFFpTY-8qIQDwwgHe_sBN3gw/preset:view/plain/2fa2de440c0ffca408c3c41ea9d1e437-2846090137772897146.jpg')
+
+  console.log(id)
+  console.log(house)
+
+  const images = new Array(3).fill(house.img)
   
+
   return (
     <>
       <script
@@ -50,7 +56,7 @@ export default async function Page({params}: PageProps ) {
           </div>
         </div>
         <Suspense>
-          <RelatedProducts id={house.title} />
+          <RelatedProducts id={id} />
         </Suspense>
       </div>
     </>
@@ -68,7 +74,7 @@ async function RelatedProducts({ id }: { id: string }) {
       <h2 className="mb-4 text-2xl font-bold">Related Products</h2>
       <ul className="flex w-full gap-4 overflow-x-auto pt-1">
         {relatedProducts.map((product:any) => (
-          product = product[0],
+          // product = product[0],
           <li
             key={product.title}
             className="aspect-square w-full flex-none min-[475px]:w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5"

@@ -39,18 +39,18 @@ const SearchBar = () => {
     const searchParams = new URLSearchParams(window.location.search);
 
     if (model) {
-      searchParams.set("model", model);
+      searchParams.set("q", model);
     } else {
       searchParams.delete("model");
     }
 
     if (manufacturer) {
-      searchParams.set("manufacturer", manufacturer);
+      searchParams.set("q", manufacturer);
     } else {
        searchParams.delete("manufacturer");
     }
 
-    const newPathname = `${window.location.pathname}?${searchParams.toString()}`;
+    const newPathname = `/search?${searchParams.toString()}`;
 
     router.push(newPathname);
   };
@@ -66,7 +66,7 @@ const SearchBar = () => {
       </div> */}
       <div className='searchbar__item'>
         <Image
-          src='/model-icon.png'
+          src='/type.png'
           width={25}
           height={25}
           className='absolute w-[20px] h-[20px] ml-4'

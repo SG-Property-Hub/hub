@@ -34,7 +34,7 @@ export async function fetchHouses(
 
 export async function fetchHouse(id: string) {
   try {
-    const url =`${process.env.API_URL}/api/products?limit=1`
+    const url =`${process.env.API_URL}/api/product?id=${id}`
     const response = await fetch(url);
 
     if (!response.ok) {
@@ -43,9 +43,9 @@ export async function fetchHouse(id: string) {
 
     const result = await response.json();
     return result;
-  } catch (error) {
-    return null;
-  }
+    } catch (error) {
+      return null;
+    }
 }
 
 

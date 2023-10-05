@@ -16,13 +16,13 @@ interface HouseCardProps {
 
 const HouseCard = ({ house }: HouseCardProps) => {
   // const { city_mpg, year, make, model, transmission, drive } = car;
-  const { title, dist, img, url, rooms, size, price, long, lat} = house;
+  const { title, dist, img, url, rooms, size, price, long, lat, raw_id} = house;
   const [isOpen, setIsOpen] = useState(false);
 
   // const carRent = calculateCarRent(city_mpg, year);
 
   return (
-    <Link href='product/199'>
+    <Link href={`product/${raw_id}`}>
     <div className="house-card group">
       <div className="house-card__content" style={{ height: '100px' }}>
         <h3 className="house-card__content-title">

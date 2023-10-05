@@ -1,6 +1,7 @@
 import { MouseEventHandler } from "react";
 
 export interface HouseProps {
+  raw_id: string;
   title: string;
   dist: string;
   img: string;

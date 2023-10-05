@@ -1,6 +1,8 @@
 import "./globals.css";
 
-import { Footer, NavBar } from "@components";
+import Footer from "@components/layout/footer";
+import NavBar from "@components/layout/navbar";
+import { ReactNode, Suspense } from 'react';
 
 export const metadata = {
   title: "SG Property Hub",
@@ -12,7 +14,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang='vi'>
       <body className='relative'>
         <NavBar />
-        {children}
+        <Suspense>
+          {children}
+        </Suspense>
         <Footer />
       </body>
     </html>
