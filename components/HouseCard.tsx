@@ -8,6 +8,7 @@ import { HouseProps } from "@types";
 import CustomButton from "./CustomButton";
 import HouseDetails from "./HouseDetails";
 import Link from "next/link";
+import Price from '@components/price';
 
 interface HouseCardProps {
   house: HouseProps;
@@ -21,6 +22,7 @@ const HouseCard = ({ house }: HouseCardProps) => {
   // const carRent = calculateCarRent(city_mpg, year);
 
   return (
+    <Link href='product/199'>
     <div className="house-card group">
       <div className="house-card__content" style={{ height: '100px' }}>
         <h3 className="house-card__content-title">
@@ -28,11 +30,12 @@ const HouseCard = ({ house }: HouseCardProps) => {
         </h3>
       </div>
 
-      <p className='flex mt-6 text-[22px] leading-[38px] font-extrabold'>
-        {/* <span className='self-start text-[14px] leading-[17px] font-semibold'>$</span> */}
-        {generatePrice(price)}
-        <span className='text-[15px] font-medium'> VND</span>
-      </p>
+      <div className="mr-auto w-auto rounded-full border dark:border-blue-200 p-2 text-sm text-black flex mt-6 ">
+          <Price
+            amount={price.toString()}
+            currencyCode='VND'
+          />
+        </div>
 
       <div className='relative w-full h-40 my-3 object-contain'>
         <Image src={img} alt='house model' fill priority className='object-contain' layout="fill" objectFit="cover" />
@@ -58,25 +61,20 @@ const HouseCard = ({ house }: HouseCardProps) => {
         </div>
 
         <div className="house-card__btn-container">
-          <Link href='product/199'>
+          
             <CustomButton
               title='Xem thêm'
               containerStyles='w-full py-[16px] rounded-full bg-primary-blue'
               textStyles='text-white text-[14px] leading-[17px] font-bold'
               // rightIcon='/right-arrow.svg'
-         
-              
               // handleClick={() => setIsOpen(true)}
-            />
-          </Link>
-          
-
-          
+            />     
         </div>
       </div>
 
       <HouseDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} house={house} />
     </div>
+    </Link>
   );
 };
 
