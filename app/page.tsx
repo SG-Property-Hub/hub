@@ -8,13 +8,9 @@ import { useRouter } from "next/router";
 import { usePathname } from "next/navigation";
 
 export default async function Home({ searchParams }: HomeProps) {
-  // const pathname = usePathname()
+  
   const allHouses = await fetchHouses({
-    //manufacturer: searchParams.manufacturer || "",
-    // year: searchParams.year || 2022,
-    // fuel: searchParams.fuel || "",
     limit: searchParams.limit || 48
-    // model: searchParams.model || "",
   });
 
   const isDataEmpty = !Array.isArray(allHouses) || allHouses.length < 1 || !allHouses;

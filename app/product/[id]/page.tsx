@@ -11,8 +11,6 @@ import { Suspense } from 'react';
 import { ProductDescription } from '@components/product/product-description';
 import { Gallery } from '@components/product/gallery';
 import { GridTileImage } from '@components/grid/tile';
-import { HomeProps } from "@types";
-import { HouseProps } from "@types";
 
 export interface PageProps {
   params: {
@@ -21,12 +19,11 @@ export interface PageProps {
 }
  
 export default async function Page({params}: PageProps ) {
-  // const [isOpen, setIsOpen] = useState(false);
   const {id} = params;
   const data = await fetchHouse(id);
+  if (!data) return null;
   const house = data[0]
   const images = new Array(3).fill('https://cdn.chotot.com/XI28WDFwhRO7cWRHD75RFFpTY-8qIQDwwgHe_sBN3gw/preset:view/plain/2fa2de440c0ffca408c3c41ea9d1e437-2846090137772897146.jpg')
-  console.log(house)
   
   return (
     <>
@@ -56,9 +53,6 @@ export default async function Page({params}: PageProps ) {
           <RelatedProducts id={house.title} />
         </Suspense>
       </div>
-      {/* <Suspense>
-        <Footer />
-      </Suspense> */}
     </>
   );
 }

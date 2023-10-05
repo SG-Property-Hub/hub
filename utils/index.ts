@@ -25,25 +25,32 @@ export async function fetchHouses(
     filters: FilterProps
   ) {
   const { manufacturer, year, model, limit, fuel } = filters;
-  const response = await fetch(
-    `https://api.vietdoo.engineer/api/products?limit=${limit}`
-  );
+  const url =`${process.env.API_URL}/api/products?limit=${limit}`
+  const response = await fetch(url);
 
   const result = await response.json();
   return result;
 }
 
-export async function fetchHouse(
-    id:string
-  ) {
-  const response = await fetch(
-    `https://api.vietdoo.engineer/api/products?limit=1`,
-    // {mode: 'no-cors'}
-  );
+export async function fetchHouse(id: string) {
+  try {
+    const url =`${process.env.API_URL}/api/products?limit=1`
+    const response = await fetch(url);
 
-  const result = await response.json();
-  return result;
+    if (!response.ok) {
+      throw new Error(`Request failed with status ${response.status}`);
+    }
+
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    return null;
+  }
 }
+
+
+
+
 
 
 const fetcher = (url:string) => fetch(url, {mode: 'no-cors'}).then(res => res)

@@ -30,7 +30,7 @@ const HouseCard = ({ house }: HouseCardProps) => {
         </h3>
       </div>
 
-      <div className="mr-auto w-auto rounded-full border dark:border-blue-200 p-2 text-sm text-black flex mt-6 ">
+      <div className="mr-auto w-auto rounded-full border dark:border-neutral-200 p-2 text-sm text-black flex mt-6 ">
           <Price
             amount={price.toString()}
             currencyCode='VND'
