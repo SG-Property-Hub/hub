@@ -20,7 +20,8 @@ export {
   Footer,
   NavBar,
   ShowMore,
+  Map,
   Pagination,
   SearchBar,
-  Map,
+
 };
