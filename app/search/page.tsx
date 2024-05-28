@@ -45,16 +45,16 @@
 import { fetchHouses } from "@utils";
 import { HomeProps } from "@types";
 import { propDist, propType } from "@constants";
-import { HouseCard, ShowMore, SearchBar, CustomFilter, Hero } from "@components";
+import { HouseCard, Pagination, SearchBar, CustomFilter, Hero } from "@components";
 import { useRouter } from "next/router";
 import { usePathname } from "next/navigation";
 
 export default async function Home({ searchParams }: HomeProps) {
   
   const allHouses = await fetchHouses({
-    limit: searchParams.limit || 48
+    page: searchParams.page || 1
   });
-
+  const maxPages = 20;
   const isDataEmpty = !Array.isArray(allHouses) || allHouses.length < 1 || !allHouses;
   // router.replace(router.asPath);
   return (
@@ -83,9 +83,10 @@ export default async function Home({ searchParams }: HomeProps) {
               ))}
             </div>
 
-            <ShowMore
-              pageNumber={(searchParams.limit || 10) / 10}
-              isNext={(searchParams.limit || 10) > allHouses.length}
+            <Pagination
+              page={(searchParams.page || 1) / 1}
+              maxPages={maxPages}
+              isNext={allHouses.length > 0}
             />
           </section>
         ) : (

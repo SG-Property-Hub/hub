@@ -18,8 +18,9 @@ export interface FilterProps {
   manufacturer?: string;
   year?: number;
   model?: string;
-  limit?: number;
+  // limit?: number;
   fuel?: string;
+  page?: number;
 }
 
 export interface HomeProps {
@@ -57,6 +58,7 @@ export interface CustomFilterProps {
 }
 
 export interface ShowMoreProps {
+  currentLength: number;
   pageNumber: number;
   isNext: boolean;
 }
