@@ -6,6 +6,7 @@ import Image from "next/image";
 import { generatePrice } from "@utils";
 import { HouseProps } from "@types";
 import CustomButton from "./CustomButton";
+import CustomImage from "./CustomImage";
 import HouseDetails from "./HouseDetails";
 import Link from "next/link";
 import Price from '@components/price';
@@ -15,11 +16,9 @@ interface HouseCardProps {
 }
 
 const HouseCard = ({ house }: HouseCardProps) => {
-  // const { city_mpg, year, make, model, transmission, drive } = car;
+
   const { title, dist, img, url, rooms, size, price, long, lat, raw_id} = house;
   const [isOpen, setIsOpen] = useState(false);
-
-  // const carRent = calculateCarRent(city_mpg, year);
 
   return (
     <Link href={`product/${raw_id}`}>
@@ -38,7 +37,8 @@ const HouseCard = ({ house }: HouseCardProps) => {
         </div>
 
       <div className='relative w-full h-40 my-3 object-contain'>
-        <Image src={img} alt='house model' fill priority className='object-contain' layout="fill" objectFit="cover" />
+        {/* <Image src={img} alt='house model' fill priority className='object-contain' objectFit="cover" /> */}
+          <CustomImage src={img} alt='house model' fill priority className='object-contain' objectFit="cover" />
       </div>
 
       <div className='relative flex w-full mt-2'>
