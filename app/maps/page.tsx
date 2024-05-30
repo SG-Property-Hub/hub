@@ -29,7 +29,7 @@ export default async function Maps({ searchParams }: HomeProps) {
     <div className='mt-12 padding-x padding-y max-width' id='discover'>
       {!isDataEmpty ? (
         <section>
-          <div className='home__cars-wrapper'>
+          <div className='home__houses-wrapper'>
             {allHouses?.map((house) => (
               <HouseCard house={house} />
             ))}
