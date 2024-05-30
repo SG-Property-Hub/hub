@@ -32,7 +32,7 @@ import { currentUser } from '@clerk/nextjs/server';
 
 export default async function Navbar() {
   const user = await currentUser();
-  const user_name = user?.username;
+  const user_name = user?.username ?? "";
 
 
   return (
