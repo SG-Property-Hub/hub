@@ -32,7 +32,8 @@ export default async function Page({params}: PageProps ) {
       </div>
     )
   }
-  const images = new Array(3).fill(house.img)
+  console.log(house.images);
+  const images = (house.images)
 
   return (
     <>
@@ -65,7 +66,8 @@ export default async function Page({params}: PageProps ) {
 async function RelatedProducts({ id }: { id: string }) {
   const house = await fetchHouse(id);
   if (!house) return null;
-  const relatedProducts = new Array(8).fill(house);
+  const random_offset = Math.floor(Math.random() * 100);
+  const relatedProducts = await fetchHouses({limit: 8, offset: random_offset});
 
   if (!relatedProducts.length) return null;
 
@@ -79,7 +81,7 @@ async function RelatedProducts({ id }: { id: string }) {
             key={product.title}
             className="aspect-square w-full flex-none min-[475px]:w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5"
           >
-            <Link className="relative h-full w-full" href={`/product/${product.raw_id}`}>
+            <Link className="relative h-full w-full" href={`/product/${product.id}`}>
               <GridTileImage
                 alt={product.title}
                 label={{
@@ -87,9 +89,10 @@ async function RelatedProducts({ id }: { id: string }) {
                   amount: product.price.toString(),
                   currencyCode: 'VND'
                 }}
-                src={product.img}
+                src={product.images[0]}
                 fill
                 sizes="(min-width: 1024px) 20vw, (min-width: 768px) 25vw, (min-width: 640px) 33vw, (min-width: 475px) 50vw, 100vw"
+                objectFit="cover"
               />
             </Link>
           </li>

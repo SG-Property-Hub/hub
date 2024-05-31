@@ -39,6 +39,7 @@ export default async function Home({ searchParams }: HomeProps) {
           <section>
             <div className='home__houses-wrapper'>
               {allHouses?.map((house) => (
+                
                 <HouseCard house={house} />
               ))}
             </div>

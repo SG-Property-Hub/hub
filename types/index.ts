@@ -1,10 +1,11 @@
+import { off } from "process";
 import { MouseEventHandler } from "react";
 
 export interface HouseProps {
-  raw_id: string;
+  id: string;
   title: string;
   dist: string;
-  img: string;
+  images: Array<string>;
   url: string;
   rooms: number;
   size: number;
@@ -18,9 +19,10 @@ export interface FilterProps {
   manufacturer?: string;
   year?: number;
   model?: string;
-  // limit?: number;
+  limit?: number;
   fuel?: string;
   page?: number;
+  offset?: number;
 }
 
 export interface HomeProps {

@@ -17,11 +17,12 @@ interface HouseCardProps {
 
 const HouseCard = ({ house }: HouseCardProps) => {
 
-  const { title, dist, img, url, rooms, size, price, long, lat, raw_id} = house;
+  const { title, dist, images, url, rooms, size, price, long, lat, id} = house;
   const [isOpen, setIsOpen] = useState(false);
+  console.log(house);
 
   return (
-    <Link href={`product/${raw_id}`}>
+    <Link href={`product/${id}`}>
     <div className="house-card group">
       <div className="house-card__content" style={{ height: '100px' }}>
         <h3 className="house-card__content-title">
@@ -38,7 +39,7 @@ const HouseCard = ({ house }: HouseCardProps) => {
 
       <div className='relative w-full h-40 my-3 object-contain'>
         {/* <Image src={img} alt='house model' fill priority className='object-contain' objectFit="cover" /> */}
-          <CustomImage src={img} alt='house model' fill priority className='object-contain' objectFit="cover" />
+          <CustomImage src={images[0]} alt='house model' fill priority className='object-contain' objectFit="cover" />
       </div>
 
       <div className='relative flex w-full mt-2'>

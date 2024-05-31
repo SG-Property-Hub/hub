@@ -74,12 +74,14 @@ export default async function Navbar() {
               <UserButton />
               {/* <div className="mt-2 ml-1"> */}
               {/* <UserProfile/> */}
+              <Link href="/user/profile" className="mr-5">
                 <CustomButton
                   title={user_name}
                   btnType='button'
                   containerStyles='text-primary-blue rounded-full bg-white'
                 />
               {/* </div> */}
+              </Link>
             </SignedIn>
 
 

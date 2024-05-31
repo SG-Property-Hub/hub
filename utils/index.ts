@@ -24,8 +24,9 @@ export const deleteSearchParams = (type: string) => {
 export async function fetchHouses(
     filters: FilterProps
   ) {
-  const { manufacturer, year, model, fuel } = filters;
-  const url =`${process.env.API_URL}/api/products?limit=8`
+  const { manufacturer, year, model, fuel, limit, offset } = filters;
+
+  const url =`${process.env.API_URL}/api/products?limit=${limit || 24}&offset=${offset || 0}`
   const response = await fetch(url);
 
   const result = await response.json();
