@@ -7,6 +7,7 @@ import { HouseProps } from "@types";
 import { generatePrice } from "@utils";
 
 export function ProductDescription({ product }: { product: HouseProps }) {
+  
   return (
     <>
       <div className="mb-6 flex flex-col border-b pb-6 dark:border-neutral-700">

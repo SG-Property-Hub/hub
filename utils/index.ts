@@ -36,12 +36,16 @@ export async function fetchHouse(id: string) {
   try {
     const url =`${process.env.API_URL}/api/product?id=${id}`
     const response = await fetch(url);
-
+    // console.log(url, response);
     if (!response.ok) {
       throw new Error(`Request failed with status ${response.status}`);
     }
 
     const result = await response.json();
+    //check error in result
+    if (result.error) {
+      throw new Error(result.error);
+    }
     return result;
     } catch (error) {
       return null;

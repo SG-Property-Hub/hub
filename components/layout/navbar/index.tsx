@@ -77,7 +77,7 @@ export default async function Navbar() {
                 <CustomButton
                   title={user_name}
                   btnType='button'
-                  containerStyles='text-primary-blue rounded-full bg-white min-w-[130px]'
+                  containerStyles='text-primary-blue rounded-full bg-white'
                 />
               {/* </div> */}
             </SignedIn>

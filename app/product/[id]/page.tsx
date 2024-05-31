@@ -21,26 +21,25 @@ export interface PageProps {
 export default async function Page({params}: PageProps ) {
   const {id} = params;
   const data = await fetchHouse(id);
-  const house = data
-
-  if (!data) return null;
-
-  console.log(id)
-  console.log(house)
-
-  const images = new Array(3).fill(house.img)
   
+  const house = data;
+
+  if (!house) {
+
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <h1 className="text-center text-2xl font-bold">Not Found</h1>
+      </div>
+    )
+  }
+  const images = new Array(3).fill(house.img)
 
   return (
     <>
       <script
         type="application/ld+json"
-        // dangerouslySetInnerHTML={{
-        //   __html: JSON.stringify(productJsonLd)
-        // }}
       />
       <div className="mx-auto max-w-screen-2xl px-4">
-        {/* <div className="flex flex-col rounded-lg border border-neutral-200 bg-white p-8 dark:border-neutral-800 dark:bg-white md:p-12 lg:flex-row lg:gap-8"> */}
         <div className="flex flex-col rounded-lg border border-neutral-200 bg-white p-8  dark:bg-white md:p-12 lg:flex-row lg:gap-8">
           <div className="h-full w-full basis-full lg:basis-4/6">
             <Gallery
@@ -65,6 +64,7 @@ export default async function Page({params}: PageProps ) {
 
 async function RelatedProducts({ id }: { id: string }) {
   const house = await fetchHouse(id);
+  if (!house) return null;
   const relatedProducts = new Array(8).fill(house);
 
   if (!relatedProducts.length) return null;
