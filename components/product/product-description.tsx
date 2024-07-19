@@ -13,7 +13,7 @@ export function ProductDescription({ product }: { product: HouseProps }) {
         <h1 className="mb-2 text-3xl font-medium">{product.title}</h1>
         <div className="mr-auto mt-3 w-auto rounded-full border border-blue-600 p-2 text-lg font-bold text-black">
           <Price
-            amount={product.price.toString()}
+            amount={(product.price !== null) ? product.price.toString() : product.price_string}
             currencyCode='VND'
           />
         </div>

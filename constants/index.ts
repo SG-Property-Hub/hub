@@ -21,15 +21,15 @@ export const propType = [
   },
   {
     title: "Nhà",
-    value: "Nhà",
+    value: "house",
   },
   {
     title: "Đất",
-    value: "Đất",
+    value: "land",
   },
   {
     title: "Căn hộ",
-    value: "Căn hộ",
+    value: "apartment",
   }
 ];
 

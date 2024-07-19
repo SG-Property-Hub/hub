@@ -1,14 +1,9 @@
-
-// "use client";
-
-import { useState } from "react";
-import HouseDetails from "@components/HouseDetails";
-import { HouseCard, ShowMore, SearchBar, CustomFilter, Hero } from "@components";
 import { fetchHouse, fetchHouses } from "@utils";
 import Link from 'next/link';
 import { Suspense } from 'react';
 
 import { ProductDescription } from '@components/product/product-description';
+import { ProductInsight } from '@components/product/product-insight';
 import { Gallery } from '@components/product/gallery';
 import { GridTileImage } from '@components/grid/tile';
 
@@ -43,7 +38,7 @@ export default async function Page({params}: PageProps ) {
           <div className="h-full w-full basis-full lg:basis-4/6">
             <Suspense>
             <Gallery
-              images={house.images.map((image:any) => ({
+              images={house.image.map((image:any) => ({
                 src: image,
                 altText: image
               }))}
@@ -54,6 +49,9 @@ export default async function Page({params}: PageProps ) {
           <div className="basis-full lg:basis-2/6">
             <ProductDescription product={house} />
           </div>
+        </div>
+        <div className="flex flex-col rounded-lg border border-neutral-200 bg-white p-8  dark:bg-white mt-10 md:p-12 lg:flex-row lg:gap-8">
+          <ProductInsight product={house} />
         </div>
         <Suspense>
           <RelatedProducts id={id} />
@@ -89,10 +87,10 @@ async function RelatedProducts({ id }: { id: string }) {
                   amount: product.price.toString(),
                   currencyCode: 'VND'
                 }}
-                src={product.images[0]}
+                src={product.image[0]}
                 fill
                 sizes="(min-width: 1024px) 20vw, (min-width: 768px) 25vw, (min-width: 640px) 33vw, (min-width: 475px) 50vw, 100vw"
-                objectFit="cover"
+                style={{ objectFit: "cover" }}
               />
             </Link>
           </li>

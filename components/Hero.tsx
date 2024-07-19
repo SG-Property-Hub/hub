@@ -18,7 +18,7 @@ const Hero = () => {
   return (
     <div className="hero">
       <div className="hero__bg">
-        <Image src="/bg.png" alt="hero" fill className="object-contain"  layout="fill" objectFit="cover"  style={{ transform: 'scale(1.5)', zIndex: -1 }}/>
+        <Image src="/bg.png" alt="hero" fill className="object-contain" layout="fill" style={{ objectFit: "cover", transform: 'scale(1.5)', zIndex: -1 }}/>
       </div>
       
       <div className="flex-1 pt-36 padding-x">

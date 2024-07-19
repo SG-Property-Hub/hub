@@ -17,9 +17,11 @@ interface HouseCardProps {
 
 const HouseCard = ({ house }: HouseCardProps) => {
 
-  const { title, dist, images, url, rooms, size, price, long, lat, id} = house;
+  const { title, thumbnail, location_dist, image, url, attr_total_room, attr_total_area, 
+          price, price_string,
+          location_long, location_lat, id} = house;
   const [isOpen, setIsOpen] = useState(false);
-  console.log(house);
+
 
   return (
     <Link href={`product/${id}`}>
@@ -32,14 +34,14 @@ const HouseCard = ({ house }: HouseCardProps) => {
 
       <div className="mr-auto w-auto rounded-full border dark:border-neutral-200 p-2 text-sm text-black flex mt-6 ">
           <Price
-            amount={price.toString()}
+            amount={(price !== null) ? price.toString() : price_string}
             currencyCode='VND'
           />
         </div>
 
       <div className='relative w-full h-40 my-3 object-contain'>
         {/* <Image src={img} alt='house model' fill priority className='object-contain' objectFit="cover" /> */}
-          <CustomImage src={images[0]} alt='house model' fill priority className='object-contain' objectFit="cover" />
+          <CustomImage src={thumbnail} alt='house model' fill priority className='object-contain' objectFit="cover" />
       </div>
 
       <div className='relative flex w-full mt-2'>
@@ -52,11 +54,11 @@ const HouseCard = ({ house }: HouseCardProps) => {
           </div>
           <div className="house-card__icon">
             <Image src="/square.png" width={20} height={20} alt="seat" />
-            <p className="house-card__icon-text">{size}</p>
+              <p className="house-card__icon-text">{attr_total_area}</p>
           </div>
           <div className="house-card__icon">
             <Image src="/room.png" width={20} height={20} alt="seat" />
-            <p className="house-card__icon-text">{rooms}</p>
+              <p className="house-card__icon-text">{attr_total_room}</p>
           </div>
           
         </div>

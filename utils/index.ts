@@ -24,12 +24,24 @@ export const deleteSearchParams = (type: string) => {
 export async function fetchHouses(
     filters: FilterProps
   ) {
-  const { manufacturer, year, model, fuel, limit, offset } = filters;
-
-  const url =`${process.env.API_URL}/api/products?limit=${limit || 24}&offset=${offset || 0}`
+  const { category, dist, q, page, limit} = filters;
+  
+  const offset = (page || 0) * (limit || 24);
+  var url = `${process.env.API_URL}/api/products?limit=${limit || 24}&offset=${offset}&q=${q || ''}`;
+  
+  
+  if (category) {
+    console.log('category', category);
+    url = url.concat(`&category=${category}`);
+  }
+  
+  if (dist) {
+    url = url.concat(`&dist=${dist}`);
+  }
+  
   const response = await fetch(url);
-
   const result = await response.json();
+  console.log('Fetching houses from API: ', url);
   return result;
 }
 
@@ -37,13 +49,12 @@ export async function fetchHouse(id: string) {
   try {
     const url =`${process.env.API_URL}/api/product?id=${id}`
     const response = await fetch(url);
-    // console.log(url, response);
+ 
     if (!response.ok) {
       throw new Error(`Request failed with status ${response.status}`);
     }
 
     const result = await response.json();
-    //check error in result
     if (result.error) {
       throw new Error(result.error);
     }
@@ -78,17 +89,3 @@ export const generatePrice = (price:number) => {
   return `${price_string}`;
 } 
 
-export const generateCarImageUrl = (house: HouseProps, angle?: string) => {
-  const url = new URL("https://cdn.imagin.studio/getimage");
-  // const { make, model, year } = car;
-
-  // url.searchParams.append('customer', process.env.NEXT_PUBLIC_IMAGIN_API_KEY || '');
-  // url.searchParams.append('make', make);
-  // url.searchParams.append('modelFamily', model.split(" ")[0]);
-  // url.searchParams.append('zoomType', 'fullscreen');
-  // url.searchParams.append('modelYear', `${year}`);
-  // // url.searchParams.append('zoomLevel', zoomLevel);
-  // url.searchParams.append('angle', `${angle}`);
-
-  return `${url}`;
-} 

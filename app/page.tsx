@@ -10,7 +10,11 @@ import { usePathname } from "next/navigation";
 export default async function Home({ searchParams }: HomeProps) {
   
   const allHouses = await fetchHouses({
-    page: searchParams.page || 1
+    page: searchParams.page || 1,
+    category: searchParams.category,
+    dist: searchParams.dist,
+
+
   });
 
   const maxPages = 20;
@@ -30,8 +34,8 @@ export default async function Home({ searchParams }: HomeProps) {
           <SearchBar />
 
           <div className='home__filter-container'>
-            <CustomFilter title='Nhà' options={propType} />
-            <CustomFilter title='Quận' options={propDist} />
+            <CustomFilter title='category' options={propType} />
+            <CustomFilter title='dist' options={propDist} />
           </div>
         </div>
 

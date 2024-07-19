@@ -13,35 +13,25 @@ export interface CustomImageProps {
 }
 
 const CustomImage = ({ src, alt, fill, priority, className, objectFit }: CustomImageProps) => {
-    const [error, setError] = useState(false);
+    // const [error, setError] = useState(false);
+    const [imgSrc, setImgSrc] = useState(src);
 
     const handleImageError = () => {
         console.log("Error loading image");
+        setImgSrc('/assets/images/emptyframe.png');
     };
 
     return (
         <>
-            {!error ? (
-                <Image
-                    src={src}
-                    alt={alt}
-                    fill={fill}
-                    priority={priority}
-                    className={className}
-                    objectFit={objectFit}
-                    onError={handleImageError} // Xử lý sự kiện khi ảnh gặp lỗi
-                />
-            ) : (
-                    <Image
-                        src='/assets/images/emptyframe.png'
-                        alt={alt}
-                        fill={fill}
-                        priority={priority}
-                        className={className}
-                        objectFit={objectFit}
-                        onError={handleImageError} // Xử lý sự kiện khi ảnh gặp lỗi
-                    />
-            )}
+            <Image
+                src={src}
+                alt={alt}
+                fill={fill}
+                priority={priority}
+                className={className}
+                style={{objectFit:"cover"}}
+                onError={handleImageError} 
+            />
         </>
     );
 };

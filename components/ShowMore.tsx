@@ -10,8 +10,7 @@ const ShowMore = ({ currentLength, pageNumber, isNext }: ShowMoreProps) => {
   const router = useRouter();
   
   const handleNavigation = () => {
-    console.log("Show more clicked", currentLength);
-    // Calculate the new limit based on the page number and navigation type
+
     // const newLimit = (pageNumber + 1) * 10;
 
     // // Update the "limit" search parameter in the URL with the new value
