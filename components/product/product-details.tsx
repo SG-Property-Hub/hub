@@ -5,20 +5,25 @@ import { HouseProps } from "@types";
 export function ProductDetails({ product }: { product: HouseProps }) {
  
     const featureData = [
-        { label: 'Feature', value: product.attr_feature },
-        { label: 'Total Rooms', value: product.attr_total_room ?? 'N/A' },
+        { label: 'Loại hình', value: product.property_type },
+        
         { label: 'Area (sqm)', value: product.attr_area },
         { label: 'Floor', value: product.attr_floor ?? 'N/A' },
         { label: 'Type Detail', value: product.attr_type_detail },
-        { label: 'Bathrooms', value: product.attr_bathroom ?? 'N/A' },
-        { label: 'Floor Number', value: product.attr_floor_num ?? 'N/A' },
-        { label: 'Width (m)', value: product.attr_width ?? 'N/A' },
-        { label: 'Street', value: product.location_street },
-        { label: 'Latitude', value: product.location_lat },
-        { label: 'Longitude', value: product.location_long },
-        { label: 'Last Updated', value: new Date(product.update_at).toLocaleDateString() },
-        { label: 'Initial Date', value: new Date(product.initial_date).toLocaleDateString() },
-        { label: 'Price Currency', value: product.price_currency }
+        
+
+        { label: 'Chiều ngang (m)', value: product.attr_width ?? 'N/A' },
+        { label: 'Chiều dài (m)', value: product.attr_length ?? 'N/A' },
+
+
+        { label: 'Số phòng', value: product.attr_total_room ?? 'N/A' },
+        { label: 'Số PN', value: product.attr_bathroom ?? 'N/A' },
+
+        { label: 'Đường', value: product.location_street },
+
+        { label: 'Vĩ độ', value: product.location_lat },
+        { label: 'Kinh độ', value: product.location_long },
+
     ];
 
     return (
