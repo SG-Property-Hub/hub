@@ -23,7 +23,7 @@ import {
   UserProfile
 } from '@clerk/nextjs'
 
-import { currentUser } from '@clerk/nextjs/server';
+// import { currentUser } from '@clerk/nextjs/server';
 
 // export interface NavbarProps {
 //   is_login: boolean;
@@ -31,8 +31,8 @@ import { currentUser } from '@clerk/nextjs/server';
 // }
 
 export default async function Navbar() {
-  const user = await currentUser();
-  const user_name = user?.username ?? "";
+  // const user = await currentUser();
+  // const user_name = user?.username ?? "";
 
 
   return (
@@ -61,7 +61,7 @@ export default async function Navbar() {
               containerStyles="bg-primary-blue text-white rounded-full min-w-[110px]"
             />
             </Link>
-            <SignedOut>
+            {/* <SignedOut>
               <Link href="/signin" className="mr-5">
                 <CustomButton
                   title='Đăng nhập'
@@ -69,20 +69,19 @@ export default async function Navbar() {
                   containerStyles='text-primary-blue rounded-full bg-white min-w-[130px]'
                 />
               </Link>
-            </SignedOut>
-            <SignedIn>
+            </SignedOut> */}
+            {/* <SignedIn>
               <UserButton />
-              {/* <div className="mt-2 ml-1"> */}
-              {/* <UserProfile/> */}
+   
               <Link href="/user/profile" className="mr-5">
                 <CustomButton
                   title={user_name}
                   btnType='button'
                   containerStyles='text-primary-blue rounded-full bg-white'
                 />
-              {/* </div> */}
+       
               </Link>
-            </SignedIn>
+            </SignedIn> */}
 
 
           </Suspense>

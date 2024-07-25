@@ -16,7 +16,7 @@ export const propDist = [
 
 export const propType = [
   {
-    title: "Tất cả",
+    title: "Loại hình",
     value: "",
   },
   {
