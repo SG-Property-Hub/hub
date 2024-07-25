@@ -64,8 +64,10 @@ export default async function Page({params}: PageProps ) {
 async function RelatedProducts({ id }: { id: string }) {
   const house = await fetchHouse(id);
   if (!house) return null;
+  const house_city = house.location_city;
   const random_offset = Math.floor(Math.random() * 100);
-  const relatedProducts = await fetchHouses({limit: 8, offset: random_offset});
+  console.log('house_city', house_city);
+  const relatedProducts = await fetchHouses({limit: 8, offset: random_offset, city: house_city});
 
   if (!relatedProducts.length) return null;
 

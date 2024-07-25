@@ -46,17 +46,16 @@ import { fetchHouses } from "@utils";
 import { HomeProps } from "@types";
 import { propDist, propType, propCity } from "@constants";
 import { HouseCard, Pagination, SearchBar, CustomFilter, Hero } from "@components";
-import { useRouter } from "next/router";
-import { usePathname } from "next/navigation";
+
 
 export default async function Home({ searchParams }: HomeProps) {
   
   const allHouses = await fetchHouses({
     q: searchParams.q || '',
     page: searchParams.page || 1,
-    category: searchParams.category,
-    dist: searchParams.dist,
     city: searchParams.city,
+    category: searchParams.category,
+
   });
   const maxPages = 20;
   const isDataEmpty = !Array.isArray(allHouses) || allHouses.length < 1 || !allHouses;

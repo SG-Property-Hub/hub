@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 
-import { generatePrice } from "@utils";
 import { HouseProps } from "@types";
 import CustomButton from "./CustomButton";
 import CustomImage from "./CustomImage";
@@ -18,7 +17,7 @@ interface HouseCardProps {
 const HouseCard = ({ house }: HouseCardProps) => {
 
   const { title, thumbnail, location_dist, image, url, attr_total_room, attr_total_area, 
-          price, price_string,
+          price, price_string, property_type,
           location_long, location_lat, id} = house;
   const [isOpen, setIsOpen] = useState(false);
 
@@ -27,9 +26,9 @@ const HouseCard = ({ house }: HouseCardProps) => {
     <Link href={`product/${id}`}>
     <div className="house-card group">
       <div className="house-card__content" style={{ height: '100px' }}>
-        <h3 className="house-card__content-title">
+        <h4 className="house-card__content-title" style={{ fontSize: '1rem', lineHeight: '1.25rem' }}>
           {title}
-        </h3>
+        </h4>
       </div>
 
       <div className="mr-auto w-auto rounded-full border dark:border-neutral-200 p-2 text-sm text-black flex mt-6 ">
@@ -49,7 +48,7 @@ const HouseCard = ({ house }: HouseCardProps) => {
           <div className='flex flex-col justify-center items-center gap-2'>
             <Image src='/type.png' width={20} height={20} alt='steering wheel' />
             <p className='text-[14px] leading-[17px]'>
-              {title === "a" ? "Đất" : "Nhà"}
+                {property_type}
             </p>
           </div>
           <div className="house-card__icon">
