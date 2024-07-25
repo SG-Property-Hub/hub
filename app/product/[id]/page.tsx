@@ -4,6 +4,7 @@ import { Suspense } from 'react';
 
 import { ProductDescription } from '@components/product/product-description';
 import { ProductInsight } from '@components/product/product-insight';
+import { ProductDetails } from '@components/product/product-details';
 import { Gallery } from '@components/product/gallery';
 import { GridTileImage } from '@components/grid/tile';
 
@@ -52,6 +53,8 @@ export default async function Page({params}: PageProps ) {
         </div>
         <div className="flex flex-col rounded-lg border border-neutral-200 bg-white p-8  dark:bg-white mt-10 md:p-12 lg:flex-row lg:gap-8">
           <ProductInsight product={house} />
+          <ProductDetails product={house} />
+
         </div>
         <Suspense>
           <RelatedProducts id={id} />
