@@ -5,8 +5,10 @@ import { Suspense } from 'react';
 import { ProductDescription } from '@components/product/product-description';
 import { ProductInsight } from '@components/product/product-insight';
 import { ProductDetails } from '@components/product/product-details';
+import { PinMap } from '@components/product/pin-map';
 import { Gallery } from '@components/product/gallery';
 import { GridTileImage } from '@components/grid/tile';
+
 
 export interface PageProps {
   params: {
@@ -56,6 +58,15 @@ export default async function Page({params}: PageProps ) {
           <ProductDetails product={house} />
 
         </div>
+
+        <div className="flex flex-col rounded-lg border border-neutral-200 bg-white p-8  dark:bg-white mt-10 md:p-12 lg:flex-row lg:gap-8">
+          <PinMap 
+            lat={house.location_lat} 
+            long={house.location_long}  
+            thumbnail={house.image[0]}
+          />
+
+        </div>
         <Suspense>
           <RelatedProducts id={id} />
         </Suspense>
@@ -69,7 +80,7 @@ async function RelatedProducts({ id }: { id: string }) {
   if (!house) return null;
   const house_city = house.location_city;
   const random_offset = Math.floor(Math.random() * 100);
-  console.log('house_city', house_city);
+
   const relatedProducts = await fetchHouses({limit: 8, offset: random_offset, city: house_city});
 
   if (!relatedProducts.length) return null;
