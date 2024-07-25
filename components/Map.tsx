@@ -8,13 +8,7 @@ import "leaflet-defaulticon-compatibility";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
 export default function Map() {
-  // const titles = new Leaflet.TileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}{r}.{ext}', {
-  //   attribution: ' Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-  //   subdomains: 'abcd',
-  //   minZoom: 0,
-  //   maxZoom: 18,
-  //   ext: 'png'
-  // });
+
   return (
     <MapContainer
       preferCanvas={true}
