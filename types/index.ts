@@ -55,6 +55,7 @@ export interface HouseProps {
 
 export interface FilterProps {
   dist?: string;
+  city?: string;
   category?: string;
   q?: string;
   limit?: number;

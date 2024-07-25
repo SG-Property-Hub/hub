@@ -44,7 +44,7 @@
 
 import { fetchHouses } from "@utils";
 import { HomeProps } from "@types";
-import { propDist, propType } from "@constants";
+import { propDist, propType, propCity } from "@constants";
 import { HouseCard, Pagination, SearchBar, CustomFilter, Hero } from "@components";
 import { useRouter } from "next/router";
 import { usePathname } from "next/navigation";
@@ -56,6 +56,7 @@ export default async function Home({ searchParams }: HomeProps) {
     page: searchParams.page || 1,
     category: searchParams.category,
     dist: searchParams.dist,
+    city: searchParams.city,
   });
   const maxPages = 20;
   const isDataEmpty = !Array.isArray(allHouses) || allHouses.length < 1 || !allHouses;
@@ -74,7 +75,7 @@ export default async function Home({ searchParams }: HomeProps) {
 
           <div className='home__filter-container'>
             <CustomFilter title='category' options={propType} />
-            <CustomFilter title='dist' options={propDist} />
+            <CustomFilter title='city' options={propCity} />
           </div>
         </div>
 

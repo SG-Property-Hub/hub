@@ -47,7 +47,7 @@ export default function CustomFilter({ title, options }: CustomFilterProps) {
                 <Listbox.Option
                   key={option.title}
                   className={({ active }) =>
-                    `relative cursor-default select-none py-2 px-4 ${
+                    `relative cursor-default select-none ${
                       active ? "bg-primary-blue text-white" : "text-gray-900"
                     }`
                   }

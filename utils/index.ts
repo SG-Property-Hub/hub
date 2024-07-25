@@ -24,7 +24,7 @@ export const deleteSearchParams = (type: string) => {
 export async function fetchHouses(
     filters: FilterProps
   ) {
-  const { category, dist, q, page, limit} = filters;
+  const { category, dist, city, q, page, limit} = filters;
   
   const offset = (page || 0) * (limit || 24);
   var url = `${process.env.API_URL}/api/products?limit=${limit || 24}&offset=${offset}&q=${q || ''}`;
@@ -37,6 +37,10 @@ export async function fetchHouses(
   
   if (dist) {
     url = url.concat(`&dist=${dist}`);
+  }
+
+  if (city) {
+    url = url.concat(`&city=${city}`);
   }
   
   const response = await fetch(url);
