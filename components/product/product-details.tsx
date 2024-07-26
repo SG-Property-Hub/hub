@@ -40,10 +40,6 @@ export function ProductDetails({ product }: { product: HouseProps }) {
         { label: 'Hồ sơ môi giới', value: product.agent_profile },
         { label: 'Hồ sơ dự án', value: product.project_profile },
         { label: 'Tên dự án', value: product.project_name },
-        
-
-        
-
     ];
 
     return (

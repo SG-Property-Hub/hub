@@ -1,8 +1,6 @@
-// "use client";
-
 import { fetchHouses } from "@utils";
 import { HomeProps } from "@types";
-import { propDist, propType } from "@constants";
+import { propCity, propType } from "@constants";
 import { HouseCard, Pagination, SearchBar, CustomFilter, Hero } from "@components";
 import { useRouter } from "next/router";
 import { usePathname } from "next/navigation";
@@ -11,10 +9,10 @@ import { Suspense } from 'react'
 export default async function Home({ searchParams }: HomeProps) {
   
   const allHouses = await fetchHouses({
+    q: searchParams.q || '',
     page: searchParams.page || 1,
+    city: searchParams.city,
     category: searchParams.category,
-    dist: searchParams.dist,
-
 
   });
 
@@ -38,7 +36,7 @@ export default async function Home({ searchParams }: HomeProps) {
 
           <div className='home__filter-container'>
             <CustomFilter title='category' options={propType} />
-            <CustomFilter title='dist' options={propDist} />
+            <CustomFilter title='city' options={propCity} />
           </div>
         </div>
 

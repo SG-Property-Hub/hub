@@ -12,27 +12,23 @@ export interface CustomImageProps {
     objectFit?: "cover" | "contain" | "fill";
 }
 
-const CustomImage = ({ src, alt, fill, priority, className, objectFit }: CustomImageProps) => {
-    // const [error, setError] = useState(false);
+const CustomImage: React.FC<CustomImageProps> = ({ src, alt, fill, priority, className, objectFit = "cover" }) => {
     const [imgSrc, setImgSrc] = useState(src);
 
-    const handleImageError = () => {
-        console.log("Error loading image");
+    const handleError = () => {
         setImgSrc('/assets/images/emptyframe.png');
     };
 
     return (
-        <>
-            <Image
-                src={src}
-                alt={alt}
-                fill={fill}
-                priority={priority}
-                className={className}
-                style={{objectFit:"cover"}}
-                onError={handleImageError} 
-            />
-        </>
+        <Image
+            src={imgSrc}
+            alt={alt}
+            fill={fill}
+            priority={priority}
+            className={className}
+            style={{ objectFit }}
+            onError={handleError}
+        />
     );
 };
 

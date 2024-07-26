@@ -17,7 +17,8 @@ interface HouseCardProps {
 const HouseCard = ({ house }: HouseCardProps) => {
 
   const { title, thumbnail, location_dist, image, url, attr_total_room, attr_total_area, 
-          price, price_string, property_type,
+          price, price_string, property_type, 
+          location_city, 
           location_long, location_lat, id} = house;
   const [isOpen, setIsOpen] = useState(false);
 
@@ -36,10 +37,14 @@ const HouseCard = ({ house }: HouseCardProps) => {
             amount={(price !== null) ? price.toString() : price_string}
             currencyCode='VND'
           />
+          
+      </div>
+
+        <div className="mr-auto w-auto rounded-full border dark:border-neutral-200 p-2 text-sm text-black flex  ">
+          {location_dist}
         </div>
 
       <div className='relative w-full h-40 my-3 object-contain'>
-        {/* <Image src={img} alt='house model' fill priority className='object-contain' objectFit="cover" /> */}
           <CustomImage src={thumbnail} alt='house model' fill priority className='object-contain' objectFit="cover" />
       </div>
 
@@ -68,8 +73,6 @@ const HouseCard = ({ house }: HouseCardProps) => {
               title='Xem thêm'
               containerStyles='w-full py-[16px] rounded-full bg-primary-blue'
               textStyles='text-white text-[14px] leading-[17px] font-bold'
-              // rightIcon='/right-arrow.svg'
-              // handleClick={() => setIsOpen(true)}
             />     
         </div>
       </div>

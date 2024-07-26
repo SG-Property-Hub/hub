@@ -3,7 +3,6 @@
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css";
 import "leaflet-defaulticon-compatibility";
-import { icon } from "leaflet"
 
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
@@ -20,10 +19,7 @@ export function PinMap({ lat, long, thumbnail }: PinProps) {
     if (!lat || !long) {
         return <>Không có dữ liệu bản đồ</>
     }
-    const ICON = icon({
-        iconUrl: thumbnail,
-        iconSize: [64, 64],
-    })
+
     return (
         <MapContainer
             preferCanvas={true}
@@ -38,9 +34,6 @@ export function PinMap({ lat, long, thumbnail }: PinProps) {
                 url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
 
-            {/* <Marker icon={ICON} position={[lat, long]}>
-            </Marker> */}
-
             <Marker position={[lat, long]}>
                 <Popup>
                     Vị trí bất động sản
@@ -50,4 +43,3 @@ export function PinMap({ lat, long, thumbnail }: PinProps) {
         </MapContainer>
     );
 }
-// export default function Map() 

@@ -1,13 +1,28 @@
+import React from 'react';
 export interface Feature {
     label: string;
     value: string | number | null;
+    isUrl?: boolean; // Add this optional property
 }
 
-import React from 'react';
+export interface Feature {
+    label: string;
+    value: string | number | null;
+    isUrl?: boolean; // Add this optional property
+}
 
 interface FeatureListProps {
     features: Feature[];
 }
+
+const isValidUrl = (value: string): boolean => {
+    try {
+        new URL(value);
+        return true;
+    } catch (_) {
+        return false;
+    }
+};
 
 
 const FeatureList: React.FC<FeatureListProps> = ({ features }) => {
@@ -16,13 +31,23 @@ const FeatureList: React.FC<FeatureListProps> = ({ features }) => {
             {features
                 .filter(feature => {
                     const value = feature.value;
-                    // Check if value is not 'N/A', not null/undefined, and not an empty or whitespace-only string
                     return value !== 'N/A' && value !== null && value !== undefined && value.toString().trim().length > 0;
                 })
                 .map((feature, index: number) => (
                     <div key={index} className="p-4 border rounded-lg shadow-md bg-white">
                         <h4 className="text-lg font-semibold mb-2 text-gray-800">{feature.label}</h4>
-                        <p className="text-gray-600">{feature.value ?? '--'}</p>
+                        {typeof feature.value === 'string' && isValidUrl(feature.value) ? (
+                            <a
+                                href={feature.value}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-500 underline"
+                            >
+                                Xem
+                            </a>
+                        ) : (
+                            <p className="text-gray-600">{feature.value ?? '--'}</p>
+                        )}
                     </div>
                 ))}
         </div>
