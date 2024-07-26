@@ -26,7 +26,9 @@ const HouseCard = ({ house }: HouseCardProps) => {
   return (
     <Link href={`product/${id}`}>
     <div className="house-card group">
+        {location_dist}
       <div className="house-card__content" style={{ height: '100px' }}>
+        
         <h4 className="house-card__content-title" style={{ fontSize: '1rem', lineHeight: '1.25rem' }}>
           {title}
         </h4>
@@ -39,10 +41,6 @@ const HouseCard = ({ house }: HouseCardProps) => {
           />
           
       </div>
-
-        <div className="mr-auto w-auto rounded-full border dark:border-neutral-200 p-2 text-sm text-black flex  ">
-          {location_dist}
-        </div>
 
       <div className='relative w-full h-40 my-3 object-contain'>
           <CustomImage src={thumbnail} alt='house model' fill priority className='object-contain' objectFit="cover" />

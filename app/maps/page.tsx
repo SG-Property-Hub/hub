@@ -23,7 +23,6 @@ export default async function Maps({ searchParams }: HomeProps) {
   return (
     <main className='overflow-hidden' >
     <div>
-        {/* <h1 className="flex">Maps</h1> */}
       <LazyMap />
     </div>
     <div className='mt-12 padding-x padding-y max-width' id='discover'>
