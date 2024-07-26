@@ -45,7 +45,7 @@
 import { fetchHouses } from "@utils";
 import { HomeProps } from "@types";
 import { propDist, propType, propCity } from "@constants";
-import { HouseCard, Pagination, SearchBar, CustomFilter, Hero } from "@components";
+import { HouseCard, Pagination, SearchBar, CustomFilter } from "@components";
 
 
 export default async function Home({ searchParams }: HomeProps) {
@@ -73,6 +73,7 @@ export default async function Home({ searchParams }: HomeProps) {
           <SearchBar />
 
           <div className='home__filter-container'>
+
             <CustomFilter title='category' options={propType} />
             <CustomFilter title='city' options={propCity} />
           </div>

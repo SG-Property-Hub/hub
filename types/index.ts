@@ -98,6 +98,13 @@ export interface CustomFilterProps {
   options: OptionProps[];
 }
 
+export interface PriceCustomFilterProps {
+  title: string;          // The title of the filter
+  minPrice: number;      // Minimum price for the range
+  maxPrice: number;      // Maximum price for the range
+}
+
+
 export interface ShowMoreProps {
   currentLength: number;
   pageNumber: number;

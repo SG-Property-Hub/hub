@@ -6,6 +6,7 @@ import { propDist, propType } from "@constants";
 import { HouseCard, Pagination, SearchBar, CustomFilter, Hero } from "@components";
 import { useRouter } from "next/router";
 import { usePathname } from "next/navigation";
+import { Suspense } from 'react'
 
 export default async function Home({ searchParams }: HomeProps) {
   
@@ -31,7 +32,9 @@ export default async function Home({ searchParams }: HomeProps) {
         </div>
 
         <div className='home__filters'>
+      
           <SearchBar />
+      
 
           <div className='home__filter-container'>
             <CustomFilter title='category' options={propType} />

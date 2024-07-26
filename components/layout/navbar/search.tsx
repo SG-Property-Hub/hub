@@ -23,17 +23,6 @@ export default function Search() {
     router.push(createUrl('/search', newParams));
   }
 
-  //find search-button
-  // const searchButton = document.querySelector('.search-button');
-  // //add click searchButton to run form submit
-  // searchButton?.addEventListener('click', () => {
-  //   const form = document.querySelector('form');
-  //   form?.dispatchEvent(new Event('submit'));
-  // });
-
-
- 
-
 
   return (
     <form onSubmit={onSubmit} className="w-max-[550px] relative w-full lg:w-80 xl:w-full">

@@ -2,6 +2,7 @@ import HouseCard from "./HouseCard";
 import CustomButton from "./CustomButton";
 import CustomImage from "./CustomImage";
 import CustomFilter from "./CustomFilter";
+import PriceCustomFilter from "./PriceCustomFilter";
 import Footer from "./layout/footer";
 import NavBar from "./layout/navbar";
 import ShowMore from "./ShowMore";
@@ -17,6 +18,7 @@ export {
   CustomImage,
   CustomButton,
   CustomFilter,
+  PriceCustomFilter,
   Footer,
   NavBar,
   ShowMore,
