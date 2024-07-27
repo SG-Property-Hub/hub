@@ -3,6 +3,7 @@ import CustomButton from "./CustomButton";
 import CustomImage from "./CustomImage";
 import CustomFilter from "./CustomFilter";
 import PriceCustomFilter from "./PriceCustomFilter";
+import MapHouses from "./MapHouses";
 import Footer from "./layout/footer";
 import NavBar from "./layout/navbar";
 import ShowMore from "./ShowMore";
@@ -19,6 +20,7 @@ export {
   CustomButton,
   CustomFilter,
   PriceCustomFilter,
+  MapHouses,
   Footer,
   NavBar,
   ShowMore,

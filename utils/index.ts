@@ -24,14 +24,13 @@ export const deleteSearchParams = (type: string) => {
 export async function fetchHouses(
     filters: FilterProps
   ) {
-  const { category, dist, city, q, page, limit} = filters;
+  const { category, dist, city, q, page, limit, lat_tl, long_tl, lat_br, long_br} = filters;
   
   const offset = (page || 0) * (limit || 24);
   var url = `${process.env.API_URL}/api/products?limit=${limit || 24}&offset=${offset}&q=${q || ''}`;
   
   
   if (category) {
-    console.log('category', category);
     url = url.concat(`&category=${category}`);
   }
   
@@ -42,10 +41,15 @@ export async function fetchHouses(
   if (city) {
     url = url.concat(`&city=${city}`);
   }
-  
+
+  if (lat_tl && long_tl && lat_br && long_br) {
+    url = url.concat(`&lat_tl=${lat_tl}&long_tl=${long_tl}&lat_br=${lat_br}&long_br=${long_br}`);
+  }
+  // console.log('Filters: ', filters);
+  // console.log('Fetching houses from API: ', url);
   const response = await fetch(url);
   const result = await response.json();
-  console.log('Fetching houses from API: ', url);
+  
   return result;
 }
 

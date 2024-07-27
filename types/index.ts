@@ -62,6 +62,10 @@ export interface FilterProps {
   fuel?: string;
   page?: number;
   offset?: number;
+  lat_tl?: number;
+  long_tl?: number;
+  lat_br?: number;
+  long_br?: number
 }
 
 export interface HomeProps {
